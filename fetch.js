@@ -15,7 +15,7 @@ const populatePage = function (books) {
           <span class="price">€ ${book.price}</span>
           <div>
               <a href="#" class="btn btn-primary mb-2" onclick="bookPreferred(event)">Aggiungi ai preferiti</a>
-              <a href="#" class="btn btn-danger" onclick="bookToRemove(event)">Rimuovi</a>
+              <a href="#" class="btn btn-danger" onclick="bookToRemove(event)">Skip</a>
           </div>
         </div>`;
     books_div.appendChild(card);
@@ -64,7 +64,6 @@ window.onload = () => {
   let search_btn = document.querySelector("#search button");
 
   search_btn.onclick = () => {
-    console.log(search_input.value);
-    console.log(searchBooksByName(search_input.value));
+    searchBooksByName(search_input.value);
   };
 };
