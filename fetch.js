@@ -1,6 +1,7 @@
 const populatePage = function (books) {
   let books_div = document.querySelector(".books");
-  books_div.childNodes[0].remove();
+  books_div.innerHTML = ""; //reset pagina
+
   books.forEach((book) => {
     let card = document.createElement("div");
 
@@ -36,17 +37,13 @@ const searchBooksByName = function (text) {
     })
     .then((data) => {
       //filtro i titoli che contengono il parametro cercato
-      console.log(
+      populatePage(
         data.filter((book) =>
           book.title.toLowerCase().includes(text.toLowerCase())
         )
       );
-      return data.filter((book) =>
-        book.title.toLowerCase().includes(text.toLowerCase())
-      );
     })
     .catch((err) => console.log(err));
-  return 1;
 };
 window.onload = () => {
   fetch("https://striveschool-api.herokuapp.com/books")
@@ -58,7 +55,6 @@ window.onload = () => {
       }
     })
     .then((data) => {
-      //   console.log(data);
       populatePage(data);
     })
     .catch((err) => console.log(err));
