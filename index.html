@@ -17,6 +17,7 @@
         .card {
             min-width: 185px;
             margin: 0.5em;
+            transition: all 200ms;
         }
 
         .card img {
@@ -28,14 +29,29 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
+        .card-body>div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 1px 1px 5px grey;
+            z-index: 1;
+
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="row mt-4 d-flex align-items-center">
-            <h1 class="col">La mia Libreria:</h1>
-            <input type="text" class="col-3" id="search">
+        <div class=" mt-4 d-flex justify-content-between align-items-center">
+            <h1 class="title">La mia Libreria:</h1>
+            <div id="search">
+                <input type="text" class="">
+                <button class="btn btn-primary ms-4">cerca</button>
+            </div>
         </div>
         <div class="row books">
 
